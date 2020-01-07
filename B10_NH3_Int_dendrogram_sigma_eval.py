@@ -20,7 +20,7 @@ image = fits.getdata(image_file)
 # Make dendrogram and structure catalog for varying min_delta with constant min_value
 for i in range(1,11):
     # Compute dendrogram of file, save as fits file, and open interactive dendrogram viewer
-    d = Dendrogram.compute(image, min_value=3*sigma, min_delta=multiple*sigma, min_npix=4, verbose=True)
+    d = Dendrogram.compute(image, min_value=3*sigma, min_delta=multiple*sigma, min_npix=14, verbose=True)
     v=d.viewer()
     v.show()
     
