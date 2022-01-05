@@ -16,6 +16,7 @@ area_ellipses = []
 area_exacts_main = []
 area_exacts_main = np.array(area_exacts_main)
 
+# Loop to read dendrogram contour areas up for various min_delta iterations (up to 10*sigma)
 for i in range(1,11):
     sigma_new = i*sigma
     sigmas.append(sigma_new)
@@ -26,9 +27,11 @@ for i in range(1,11):
     catalog_file = 'G:/My Drive/Research/Yancy/Youngmin/min3sig_delt{1}sigNH3_11_INT.txt'.format(i,j)
     cat = Table.read(catalog_file,format='ascii.ecsv')
 
+    # Extract exact area from astrodendro output
     area_exact = cat['area_exact']
     np.append(area_exacts,area_exact)
 
+    # Extract ellipse area from astrodendro output
     area_ellipse = cat['area_ellipse']    
     area_ellipses.append(area_ellipse)
 
